@@ -1,3 +1,4 @@
+package linloglayout;
 //Copyright (C) 2008 Andreas Noack
 //
 //This library is free software; you can redistribute it and/or
