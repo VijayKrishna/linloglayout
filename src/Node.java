@@ -40,4 +40,28 @@ public class Node {
     public String toString() {
         return name + " " + weight;
     }
+    
+    /**
+     * 
+     */
+    @Override
+    public boolean equals(Object object) {
+      if(object == null || !(object instanceof Node))
+        return false;
+      
+      Node node = (Node) object;
+      if(this.name == node.name && this.weight == node.weight) {
+        return true;
+      }
+      
+      return false;
+    }
+    
+    @Override
+    public int hashCode() {
+      int hash = 31;
+      hash += 17 * Double.valueOf(this.weight).hashCode();
+      hash += this.name.hashCode();
+      return hash;
+    }
 }
