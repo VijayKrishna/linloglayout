@@ -41,11 +41,44 @@ public class Edge {
         this.density = weight / (startNode.weight*endNode.weight);
     }
     
+    public static Edge copyWithNewWt(Edge edge, double weight) {
+      if(edge.startNode == null || edge.endNode == null) {
+        throw new RuntimeException("Input edge is malformed.");
+      }
+      Edge copy = new Edge(edge.startNode, edge.endNode, weight);
+      return copy;
+    }
+    
     /**
      * Returns a string representation of the object.
      */
     public String toString() {
         return startNode.name + "->" + endNode.name + " " + weight;
+    }
+    
+    /**
+     * 
+     * @return
+     */
+    @Override
+    public boolean equals(Object object) {
+      if(object == null || !(object instanceof Edge))
+        return false;
+      
+      Edge edge = (Edge) object;
+      if(this.startNode.equals(edge.startNode) 
+          && this.endNode.equals(edge.endNode)) {
+        return true;
+      }
+      
+      return false;
+    }
+    
+    public int hashCode() {
+      int hash = 31;
+      hash += 17 * this.startNode.hashCode();
+      hash += 17 * this.endNode.hashCode();
+      return hash;
     }
 }
 

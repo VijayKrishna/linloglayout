@@ -95,7 +95,7 @@ public class LinLogLayout {
 	 * @param graph  possibly unsymmetric graph.
 	 * @return symmetric version of the given graph.
 	 */
-	private static Map<String,Map<String,Double>> makeSymmetricGraph
+	public static Map<String,Map<String,Double>> makeSymmetricGraph
 			(Map<String,Map<String,Double>> graph) {
 		Map<String,Map<String,Double>> result = new HashMap<String,Map<String,Double>>();
 		for (String source : graph.keySet()) {

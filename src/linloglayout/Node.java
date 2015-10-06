@@ -51,7 +51,7 @@ public class Node {
         return false;
       
       Node node = (Node) object;
-      if(this.name == node.name && this.weight == node.weight) {
+      if(this.name.equals(node.name)) {
         return true;
       }
       
@@ -61,8 +61,7 @@ public class Node {
     @Override
     public int hashCode() {
       int hash = 31;
-      hash += 17 * Double.valueOf(this.weight).hashCode();
-      hash += this.name.hashCode();
+      hash += 17 * this.name.hashCode();
       return hash;
     }
 }
